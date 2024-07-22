@@ -1,0 +1,194 @@
+/* General Body Styling */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(45deg, #00100F, #003B39); /* Gradient background */
+    background-size: 400% 400%; /* To animate the gradient */
+    animation: gradientAnimation 15s ease infinite; /* Animation for gradient */
+    color: #85B7B6; /* Light Teal Text Color */
+    overflow: hidden; /* Prevent scrollbars */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: relative; /* Ensure positioning for the lines */
+}
+
+/* Vertical Lines Animation */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 1px,
+        rgba(255, 255, 255, 0.1) 1px,
+        rgba(255, 255, 255, 0.1) 2px
+    );
+    background-size: 2px 100%; /* Width of the lines */
+    animation: linesAnimation 6s linear infinite; /* Increased duration for slower animation */
+}
+
+/* Gradient Animation */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+/* Lines Animation */
+@keyframes linesAnimation {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+/* Main Content Styling */
+.main-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: relative; /* Ensure that children are positioned relative to this container */
+    padding-top: 50px; /* Adjust top padding to make space for the title */
+}
+
+/* Pricing Title Styling */
+.pricing-title {
+    color: #0092A2; /* Teal Accent */
+    font-size: 6.5rem; /* Increased font size */
+    margin-bottom: 40px; /* Space below the title */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Shadow for better visibility */
+    animation: bounceIn 1.5s ease-out, fadeInUp 2s ease-out; /* Add bounce-in and fade-in effects */
+    position: absolute;
+    top: 20px; /* Fixed position at the top */
+    left: 50%;
+    transform: translateX(-50%); /* Center horizontally */
+}
+
+/* Container Styling */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px; /* Space between cards */
+    padding: 20px;
+}
+
+/* Card Styling */
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 285px; /* 1.75x smaller than 500px */
+    height: 228px; /* 1.75x smaller than 400px */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform-style: preserve-3d; /* Preserve 3D transformations */
+    will-change: transform;
+    position: relative; /* Necessary for absolute positioning of the hover effect */
+    overflow: hidden; /* Ensure content doesn't overflow */
+}
+
+/* Card Content Styling */
+.card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Card Hover Effect */
+.card:hover {
+    transform: translateY(-15px) rotateX(7deg) rotateY(7deg); /* Slight lift and rotation effect */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+}
+
+/* Card Title and List Styling */
+.card h2 {
+    margin-top: 0;
+    color: #0092A2; /* Teal Accent */
+}
+
+.card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: #666;
+}
+
+.card ul li {
+    margin-bottom: 15px; /* Increased spacing */
+}
+
+/* Purchase Button Styling */
+.purchase-info {
+    margin-bottom: 30px; /* Space above the button */
+}
+
+.purchase-button {
+    background-color: #0092A2; /* Teal background */
+    color: #ffffff; /* White text */
+    padding: 15px 30px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 146, 162, 0.7); /* Teal outer glow */
+    text-decoration: none;
+    font-size: 1.2rem; /* Font size for visibility */
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.purchase-button:hover {
+    background-color: #017481; /* Darker teal on hover */
+    transform: translateY(-3px); /* Lift effect on hover */
+}
+
+.purchase-button:active {
+    transform: translateY(1px); /* Slightly pressed effect on click */
+}
+
+/* Back Button Styling */
+.back-button {
+    position: absolute;
+    bottom: 20px; /* Space from the bottom */
+}
+
+.button-link {
+    display: inline-block;
+    padding: 20px 40px; /* Larger padding for the button */
+    background-color: #017481; /* Teal Accent */
+    color: #ffffff; /* White text */
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 24px; /* Larger font size for the button */
+    font-weight: bold;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.button-link:hover {
+    background-color: #0092A2; /* Teal Accent */
+    transform: translateY(-3px); /* Lift effect on hover */
+}
+
+.button-link:active {
+    transform: translateY(
